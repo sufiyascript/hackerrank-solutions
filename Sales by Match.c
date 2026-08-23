@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int sockMerchant(int n, int ar_count, int* ar) {
+    int count[101] = {0};
+    int pairs = 0;
+
+    for (int i = 0; i < n; i++) {
+        count[ar[i]]++;
+    }
+
+    for (int i = 0; i <= 100; i++) {
+        pairs += count[i] / 2;
+    }
+
+    return pairs;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int ar[n];
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &ar[i]);
+    }
+
+    int result = sockMerchant(n, n, ar);
+
+    printf("%d\n", result);
+
+    return 0;
+}
